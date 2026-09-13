@@ -1,8 +1,10 @@
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 import pandas as pd
+import sqlite3
 
 # Configure browser user agent
 
@@ -120,5 +122,13 @@ print(f"Coolest city: {coolest_city['City']} at {coolest_city['Temperature']} °
 df.to_csv("weather_data_clean.csv", index=False)
 
 print("Cleaned weather data saved to weather_data_clean.csv")
+
+conn = sqlite3.connect("weather_data.db")
+raw_df.to_sql("raw_weather", conn, if_exists="replace", index=False)
+
+df.to_sql("clean_weather", conn, if_exists="replace", index=False)
+conn.close()
+
+print("Raw and cleaned weather data saved to weather_data.db")
 
 driver.quit()
