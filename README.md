@@ -14,7 +14,7 @@ The scraper collects weather information for 15 cities, including:
 - Weather condition
 - Temperature
 
-The project saves both the original scraped data and the cleaned data as CSV files.
+The project saves both the original scraped data and the cleaned data as CSV files and stores both datasets in a SQLite database.
 
 ## Files
 
@@ -22,6 +22,7 @@ The project saves both the original scraped data and the cleaned data as CSV fil
 - `weather_data_raw.csv` - Raw data collected from the website.
 - `weather_data_clean.csv` - Cleaned and transformed weather data.
 - `requirements.txt` - Python dependencies required to run the project.
+- `weather_data.db` - SQLite database containing separate tables for the raw and cleaned weather data.
 
 ## Setup
 
@@ -34,4 +35,4 @@ pip install -r requirements.txt
 
 ## Future Development
 
-Later stages of the capstone will store the cleaned data in SQLite and use Streamlit to create an interactive weather dashboard.
+A later stage of the capstone will use Streamlit to create an interactive weather dashboard.
